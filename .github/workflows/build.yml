@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+    tags-ignore:
+      - r[0-9]*
+  workflow_dispatch:
+
+jobs:
+  Build:
+    uses: evanchooly/workflows/.github/workflows/build.yml@master
+
+  Snapshots:
+    if: github.ref_type == 'branch'
+    needs:
+      - Build
+    uses: evanchooly/workflows/.github/workflows/release.yml@master
+    secrets:
+      SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+      SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+      MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+      GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+      GH_TOKEN: ${{ secrets.GH_OAUTH }}
