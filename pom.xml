@@ -27,7 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>true</downloadSources>
         <nexus.url>https://oss.sonatype.org</nexus.url>
-        <local.repository.path>${basedir}/target/localRepo</local.repository.path>
+        <local.repository.path>${maven.multiModuleProjectDirectory}/target/localRepo</local.repository.path>
     </properties>
 
     <build>
@@ -79,7 +79,7 @@
                     </executions>
                     <configuration>
                         <spotbugsXmlOutputDirectory>target/spotbugs</spotbugsXmlOutputDirectory>
-                        <excludeFilterFile>${basedir}/config/findbugs-exclude.xml</excludeFilterFile>
+                        <excludeFilterFile>${maven.multiModuleProjectDirectory}/config/findbugs-exclude.xml</excludeFilterFile>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -90,12 +90,12 @@
                     <configuration>
                         <java>
                             <eclipse>
-                                <file>${basedir}/config/eclipse-format.xml</file>
+                                <file>${maven.multiModuleProjectDirectory}/config/eclipse-format.xml</file>
                             </eclipse>
                             <!--<googleJavaFormat />-->
 
                             <importOrder>
-                                <file>${basedir}/config/eclipse.importorder</file>
+                                <file>${maven.multiModuleProjectDirectory}/config/eclipse.importorder</file>
                             </importOrder>
 
                             <removeUnusedImports />
@@ -239,7 +239,7 @@
                                 </goals>
                                 <phase>generate-sources</phase>
                                 <configuration>
-                                    <sourceFile>${session.executionRootDirectory}/LICENSE</sourceFile>
+                                    <sourceFile>${maven.multiModuleProjectDirectory}/LICENSE</sourceFile>
                                     <destinationFile>${project.build.outputDirectory}/META-INF/LICENSE-${project.artifactId}</destinationFile>
                                 </configuration>
                             </execution>
