@@ -454,7 +454,7 @@
         </profile>
 
         <profile>
-            <id>compile-kotlin</id>
+            <id>enable-kotlin</id>
             <activation>
                 <file>
                     <exists>src/main/kotlin</exists>
@@ -464,11 +464,6 @@
                 <dependency>
                     <groupId>org.jetbrains.kotlin</groupId>
                     <artifactId>kotlin-stdlib</artifactId>
-                    <version>${kotlin.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.jetbrains.kotlin</groupId>
-                    <artifactId>kotlin-reflect</artifactId>
                     <version>${kotlin.version}</version>
                 </dependency>
             </dependencies>
@@ -485,7 +480,6 @@
                                     <goal>compile</goal>
                                 </goals>
                                 <configuration>
-                                    <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
                                     <sourceDirs>
                                         <sourceDir>${project.basedir}/src/main/java</sourceDir>
                                         <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
@@ -505,6 +499,10 @@
                                 </configuration>
                             </execution>
                         </executions>
+                        <configuration>
+                            <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
+                            <javaParameters>true</javaParameters>
+                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
