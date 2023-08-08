@@ -654,10 +654,11 @@
                                     </snapshot>
                                 </project>
                                 <announce>
+                                    <active>NEVER</active>
                                     <bluesky>
                                         <active>ALWAYS</active>
                                         <host>https://bsky.social</host>
-                                        <handle>BLUESKY_HANDLE</handle>
+                                        <handle>BLUESKY_USERNAME</handle>
                                         <password>BLUESKY_PASSWORD</password>
                                         <status>{{projectName}} {{projectVersion}} has been released! {{releaseNotesUrl}}</status>
                                     </bluesky>
