@@ -654,7 +654,6 @@
                                     </snapshot>
                                 </project>
                                 <announce>
-                                    <active>NEVER</active>
                                     <bluesky>
                                         <active>ALWAYS</active>
                                         <host>https://bsky.social</host>
@@ -727,12 +726,6 @@
                                                     <contributor>[bot]</contributor>
                                                 </contributors>
                                             </hide>
-
-<!--
-                                            <includeLabels>
-                                                <includeLabel>issue</includeLabel>
-                                            </includeLabels>
--->
 
                                             <categories>
                                                 <category>
