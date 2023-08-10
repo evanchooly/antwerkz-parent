@@ -15,11 +15,18 @@
     <name>antwerkz parent</name>
     <url>https://github.com/evanchooly/antwerkz-parent</url>
 
-    <scm>
-        <connection>scm:git:git@github.com:evanchooly/antwerkz-parent.git</connection>
-        <developerConnection>scm:git:git@github.com:evanchooly/antwerkz-parent.git</developerConnection>
-        <url>scm:git:git@github.com:evanchooly/antwerkz-parent.git</url>
-    </scm>
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Justin Lee</name>
+        </developer>
+    </developers>
 
     <properties>
         <dokka.version>1.8.10</dokka.version>
@@ -40,6 +47,12 @@
         <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
         <jreleaser.releaseRepository>true</jreleaser.releaseRepository>
     </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:evanchooly/antwerkz-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:evanchooly/antwerkz-parent.git</developerConnection>
+        <url>scm:git:git@github.com:evanchooly/antwerkz-parent.git</url>
+    </scm>
 
     <build>
         <pluginManagement>
