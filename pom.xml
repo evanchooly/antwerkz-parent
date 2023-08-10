@@ -680,11 +680,11 @@
                                     <armored>true</armored>
                                 </signing>
                                 <deploy>
-                                    <pomChecker>
-                                        <failOnWarning>false</failOnWarning>
-                                        <failOnError>false</failOnError>
-                                    </pomChecker>
                                     <maven>
+                                        <pomchecker>
+                                            <failOnWarning>false</failOnWarning>
+                                            <failOnError>false</failOnError>
+                                        </pomchecker>
                                         <nexus2>
                                             <maven-central>
                                                 <active>${jreleaser.nexus.deploy}</active>
