@@ -9,13 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  Build:
-    uses: evanchooly/workflows/.github/workflows/build.yml@jreleaser
-
   Snapshots:
     if: github.ref_type == 'branch'
-    needs:
-      - Build
     uses: evanchooly/workflows/.github/workflows/release.yml@jreleaser
     secrets:
       BLUESKY_PASSWORD: ${{secrets.BLUESKY_PASSWORD }}
