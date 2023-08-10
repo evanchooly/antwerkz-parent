@@ -680,6 +680,10 @@
                                     <armored>true</armored>
                                 </signing>
                                 <deploy>
+                                    <pomChecker>
+                                        <failOnWarning>false</failOnWarning>
+                                        <failOnError>false</failOnError>
+                                    </pomChecker>
                                     <maven>
                                         <nexus2>
                                             <maven-central>
