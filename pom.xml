@@ -26,13 +26,19 @@
         <kotlin.version>1.8.20</kotlin.version>
         <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
 
-        <release.author>Justin Lee (@evanchooly)</release.author>
-        <release.email>jlee@antwerkz.com</release.email>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>true</downloadSources>
         <nexus.url>https://oss.sonatype.org</nexus.url>
         <local.repository.path>${maven.multiModuleProjectDirectory}/target/localRepo</local.repository.path>
+
+        <release.author>Justin Lee (@evanchooly)</release.author>
+        <release.email>jlee@antwerkz.com</release.email>
+
+        <jreleaser.announce>RELEASE</jreleaser.announce>
+        <jreleaser.announce.bluesky>RELEASE</jreleaser.announce.bluesky>
+        <jreleaser.announce.mastodon>RELEASE</jreleaser.announce.mastodon>
+        <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
+        <jreleaser.releaseRepository>true</jreleaser.releaseRepository>
     </properties>
 
     <build>
@@ -654,18 +660,18 @@
                                     </snapshot>
                                 </project>
                                 <announce>
-                                    <active>NEVER</active>
+                                    <active>${jreleaser.announce}</active>
                                     <bluesky>
-                                        <active>ALWAYS</active>
-                                        <host>https://bsky.social</host>
-                                        <handle>BLUESKY_USERNAME</handle>
-                                        <password>BLUESKY_PASSWORD</password>
+                                        <active>${jreleaser.announce.bluesky}</active>
+                                        <host>https://bsky.social/</host>
+                                        <handle>${env.BLUESKY_USERNAME}</handle>
+                                        <password>${env.BLUESKY_PASSWORD}</password>
                                         <status>{{projectName}} {{projectVersion}} has been released! {{releaseNotesUrl}}</status>
                                     </bluesky>
                                     <mastodon>
-                                        <active>ALWAYS</active>
+                                        <active>${jreleaser.announce.mastodon}</active>
                                         <host>https://mastodon.social</host>
-                                        <accessToken>MASTODON_ACCESS_KEY</accessToken>
+                                        <accessToken>${env.MASTODON_ACCESS_KEY}</accessToken>
                                         <status>{{projectName}} {{projectVersion}} has been released! {{releaseNotesUrl}}</status>
                                     </mastodon>
                                 </announce>
@@ -677,11 +683,11 @@
                                     <maven>
                                         <nexus2>
                                             <maven-central>
-                                                <active>ALWAYS</active>
+                                                <active>${jreleaser.nexus.deploy}</active>
                                                 <url>https://oss.sonatype.org/service/local</url>
                                                 <snapshotUrl>https://oss.sonatype.org/content/repositories/snapshots/</snapshotUrl>
-                                                <closeRepository>true</closeRepository>
-                                                <releaseRepository>true</releaseRepository>
+                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>
+                                                <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>
                                                 <stagingRepositories>target/localRepo/</stagingRepositories>
                                             </maven-central>
                                         </nexus2>
