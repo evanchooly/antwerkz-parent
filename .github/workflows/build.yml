@@ -6,6 +6,7 @@ on:
       - 'dependabot/**'
     tags-ignore:
       - r[0-9]*
+      - '*-SNAPSHOT'
   workflow_dispatch:
 
 jobs:
