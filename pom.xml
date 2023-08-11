@@ -9,7 +9,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>10.0.0-SNAPSHOT</version>
+    <version>10.0.0</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
@@ -670,7 +670,7 @@
                                 <project>
                                     <copyright>-</copyright>
                                     <snapshot>
-                                        <label>r${jreleaser.tag.name}</label>
+                                        <label>${jreleaser.tag.name}-SNAPSHOT</label>
                                     </snapshot>
                                 </project>
                                 <announce>
