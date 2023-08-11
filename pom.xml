@@ -42,8 +42,8 @@
         <release.email>jlee@antwerkz.com</release.email>
 
         <jreleaser.announce>RELEASE</jreleaser.announce>
-        <jreleaser.announce.bluesky>RELEASE</jreleaser.announce.bluesky>
-        <jreleaser.announce.mastodon>RELEASE</jreleaser.announce.mastodon>
+        <jreleaser.announce.bluesky>NEVER</jreleaser.announce.bluesky>
+        <jreleaser.announce.mastodon>NEVER</jreleaser.announce.mastodon>
         <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
         <jreleaser.releaseRepository>true</jreleaser.releaseRepository>
         <jreleaser.tag.name>{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}</jreleaser.tag.name>
