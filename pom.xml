@@ -46,6 +46,7 @@
         <jreleaser.announce.mastodon>RELEASE</jreleaser.announce.mastodon>
         <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
         <jreleaser.releaseRepository>true</jreleaser.releaseRepository>
+        <jreleaser.tag.name>{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}</jreleaser.tag.name>
     </properties>
 
     <scm>
@@ -669,7 +670,7 @@
                                 <project>
                                     <copyright>-</copyright>
                                     <snapshot>
-                                        <label>{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}</label>
+                                        <label>r${jreleaser.tag.name}</label>
                                     </snapshot>
                                 </project>
                                 <announce>
@@ -712,10 +713,10 @@
                                 </deploy>
                                 <release>
                                     <github>
-                                        <releaseName>Release {{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}</releaseName>
-                                        <tagName>r{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}</tagName>
+                                        <releaseName>Release ${jreleaser.tag.name}</releaseName>
+                                        <tagName>r${jreleaser.tag.name}</tagName>
                                         <milestone>
-                                            <name>{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}</name>
+                                            <name>r${jreleaser.tag.name}</name>
                                         </milestone>
                                         <overwrite>true</overwrite>
                                         <update>
