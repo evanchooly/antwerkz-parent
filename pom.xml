@@ -9,7 +9,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>11.0.0-SNAPSHOT</version>
+    <version>11-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
@@ -41,12 +41,14 @@
         <release.author>Justin Lee (@evanchooly)</release.author>
         <release.email>jlee@antwerkz.com</release.email>
 
+        <snapshot.build>true</snapshot.build>
+
         <jreleaser.announce>RELEASE</jreleaser.announce>
         <jreleaser.announce.bluesky>NEVER</jreleaser.announce.bluesky>
         <jreleaser.announce.mastodon>NEVER</jreleaser.announce.mastodon>
         <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
         <jreleaser.releaseRepository>true</jreleaser.releaseRepository>
-        <jreleaser.tag.name>{{projectVersionMajor}}.{{projectVersionMinor}}.{{projectVersionPatch}}</jreleaser.tag.name>
+        <jreleaser.tag.name>${project.version}</jreleaser.tag.name>
     </properties>
 
     <scm>
@@ -715,6 +717,8 @@
                                     <github>
                                         <releaseName>Release ${jreleaser.tag.name}</releaseName>
                                         <tagName>r${jreleaser.tag.name}</tagName>
+                                        <skipTag>true</skipTag>
+                                        <skipRelease>${snapshot.build}</skipRelease>
                                         <milestone>
                                             <name>r${jreleaser.tag.name}</name>
                                         </milestone>
