@@ -9,7 +9,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>15-SNAPSHOT</version>
+    <version>15</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
