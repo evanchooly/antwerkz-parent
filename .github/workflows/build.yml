@@ -12,7 +12,7 @@ on:
 jobs:
   Snapshots:
     if: github.ref_type == 'branch'
-    uses: evanchooly/workflows/.github/workflows/release.yml@jreleaser
+    uses: evanchooly/workflows/.github/workflows/release.yml@master
     secrets:
       BLUESKY_PASSWORD: ${{secrets.BLUESKY_PASSWORD }}
       BLUESKY_USERNAME: ${{secrets.BLUESKY_USERNAME }}
