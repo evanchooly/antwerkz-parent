@@ -8,6 +8,7 @@
 
     <name>antwerkz parent</name>
     <url>https://github.com/evanchooly/antwerkz-parent</url>
+    <description>a common base for projects. provides depdency management, automatic kotlin support, and jrelreaser suppoer</description>
 
     <licenses>
         <license>
