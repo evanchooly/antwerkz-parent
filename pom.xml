@@ -3,7 +3,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>19-SNAPSHOT</version>
+    <version>19</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
@@ -38,7 +38,7 @@
 
         <snapshot.build>true</snapshot.build>
 
-        <jreleaser.announce>RELEASE</jreleaser.announce>
+        <jreleaser.announce>NEVER</jreleaser.announce>
         <jreleaser.announce.bluesky>NEVER</jreleaser.announce.bluesky>
         <jreleaser.announce.mastodon>NEVER</jreleaser.announce.mastodon>
         <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
@@ -579,6 +579,33 @@
             </build>
         </profile>
         <profile>
+            <id>remote-deploy</id>
+            <activation>
+                <property>
+                    <name>release</name>
+                </property>
+            </activation>
+            <build>
+                <defaultGoal>deploy</defaultGoal>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.sonatype.plugins</groupId>
+                            <artifactId>nexus-staging-maven-plugin</artifactId>
+                            <version>1.6.13</version>
+                            <extensions>true</extensions>
+                            <configuration>
+                                <serverId>central</serverId>
+                                <nexusUrl>${nexus.url}</nexusUrl>
+                                <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+
+        <profile>
             <id>publication</id>
             <activation>
                 <property>
@@ -603,31 +630,13 @@
                                 <configuration>
                                     <rules>
                                         <requireEnvironmentVariable>
-                                            <variableName>BLUESKY_PASSWORD</variableName>
+                                            <variableName>SONATYPE_USERNAME</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            <variableName>BLUESKY_USERNAME</variableName>
+                                            <variableName>SONATYPE_PASSWORD</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            <variableName>JRELEASER_GITHUB_TOKEN</variableName>
-                                        </requireEnvironmentVariable>
-                                        <requireEnvironmentVariable>
-                                            <variableName>JRELEASER_GPG_PASSPHRASE</variableName>
-                                        </requireEnvironmentVariable>
-                                        <requireEnvironmentVariable>
-                                            <variableName>JRELEASER_GPG_PUBLIC_KEY</variableName>
-                                        </requireEnvironmentVariable>
-                                        <requireEnvironmentVariable>
-                                            <variableName>JRELEASER_GPG_SECRET_KEY</variableName>
-                                        </requireEnvironmentVariable>
-                                        <requireEnvironmentVariable>
-                                            <variableName>JRELEASER_NEXUS2_PASSWORD</variableName>
-                                        </requireEnvironmentVariable>
-                                        <requireEnvironmentVariable>
-                                            <variableName>JRELEASER_NEXUS2_USERNAME</variableName>
-                                        </requireEnvironmentVariable>
-                                        <requireEnvironmentVariable>
-                                            <variableName>MASTODON_ACCESS_KEY</variableName>
+                                            <variableName>GPG_PASSPHRASE</variableName>
                                         </requireEnvironmentVariable>
                                     </rules>
                                     <fail>true</fail>
@@ -691,7 +700,7 @@
             <id>jreleaser</id>
             <activation>
                 <property>
-                    <name>release</name>
+                    <name>jreleaser</name>
                 </property>
             </activation>
             <build>
@@ -704,6 +713,9 @@
                             <jreleaser>
                                 <project>
                                     <copyright>-</copyright>
+                                    <java>
+                                        <multiModule>true</multiModule>
+                                    </java>
                                     <snapshot>
                                         <label>${jreleaser.tag.name}-SNAPSHOT</label>
                                     </snapshot>
