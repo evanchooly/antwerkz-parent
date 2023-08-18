@@ -13,8 +13,8 @@ jobs:
     if: github.ref_type == 'branch' || github.ref_type == 'tag'
     uses: evanchooly/workflows/.github/workflows/build.yml@master
     secrets:
-      GH_PUSH_TOKEN       : ${{secrets.GH_PUSH_TOKEN }}
-      GPG_PASSPHRASE      : ${{secrets.GPG_PASSPHRASE }}
-      GPG_PRIVATE_KEY     : ${{secrets.GPG_PRIVATE_KEY }}
-      SONATYPE_USERNAME   : ${{secrets.SONATYPE_USERNAME }}
-      SONATYPE_PASSWORD   : ${{secrets.SONATYPE_PASSWORD }}
+      GH_PUSH_TOKEN       : ${{ secrets.GH_PUSH_TOKEN }}
+      GPG_PASSPHRASE      : ${{ secrets.GPG_PASSPHRASE }}
+      GPG_PRIVATE_KEY     : ${{ secrets.GPG_PRIVATE_KEY }}
+      SONATYPE_USERNAME   : ${{ secrets.SONATYPE_USERNAME }}
+      SONATYPE_PASSWORD   : ${{ secrets.SONATYPE_PASSWORD }}
