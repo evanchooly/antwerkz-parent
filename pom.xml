@@ -520,7 +520,7 @@
             <id>local-deploy</id>
             <activation>
                 <property>
-                    <name>release</name>
+                    <name>local-release</name>
                 </property>
             </activation>
             <distributionManagement>
