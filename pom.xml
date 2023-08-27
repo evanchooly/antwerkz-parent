@@ -3,12 +3,12 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>21-SNAPSHOT</version>
+    <version>21</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
     <url>https://github.com/evanchooly/antwerkz-parent</url>
-    <description>a common base for projects. provides depdency management, automatic kotlin support, and jrelreaser suppoer</description>
+    <description>a common base for projects. provides depdency management, automatic kotlin support, and jrelreaser support</description>
 
     <licenses>
         <license>
@@ -33,17 +33,6 @@
         <nexus.url>https://oss.sonatype.org</nexus.url>
         <local.repository.path>${maven.multiModuleProjectDirectory}/target/localRepo</local.repository.path>
 
-        <release.author>Justin Lee (@evanchooly)</release.author>
-        <release.email>jlee@antwerkz.com</release.email>
-
-        <snapshot.build>true</snapshot.build>
-
-        <jreleaser.announce>NEVER</jreleaser.announce>
-        <jreleaser.announce.bluesky>NEVER</jreleaser.announce.bluesky>
-        <jreleaser.announce.mastodon>NEVER</jreleaser.announce.mastodon>
-        <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
-        <jreleaser.releaseRepository>true</jreleaser.releaseRepository>
-        <jreleaser.tag.name>${project.version}</jreleaser.tag.name>
     </properties>
 
     <scm>
@@ -820,6 +809,19 @@
                     </plugin>
                 </plugins>
             </build>
+            <properties>
+                <release.author>Justin Lee (@evanchooly)</release.author>
+                <release.email>jlee@antwerkz.com</release.email>
+
+                <snapshot.build>true</snapshot.build>
+
+                <jreleaser.announce>NEVER</jreleaser.announce>
+                <jreleaser.announce.bluesky>NEVER</jreleaser.announce.bluesky>
+                <jreleaser.announce.mastodon>NEVER</jreleaser.announce.mastodon>
+                <jreleaser.nexus.deploy>ALWAYS</jreleaser.nexus.deploy>
+                <jreleaser.releaseRepository>true</jreleaser.releaseRepository>
+                <jreleaser.tag.name>${project.version}</jreleaser.tag.name>
+            </properties>
         </profile>
         <!-- end release profiles -->
 
