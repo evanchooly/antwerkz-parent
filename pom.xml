@@ -31,7 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>true</downloadSources>
         <nexus.url>https://oss.sonatype.org</nexus.url>
-        <local.repository.path>${maven.multiModuleProjectDirectory}/target/localRepo</local.repository.path>
+        <local.repository.path>target/localRepo</local.repository.path>
 
     </properties>
 
@@ -70,27 +70,12 @@
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>4.7.3.5</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.github.spotbugs</groupId>
-                            <artifactId>spotbugs</artifactId>
-                            <version>4.7.3</version>
-                            <type>pom</type>
-                        </dependency>
-                    </dependencies>
-                    <executions>
-                        <execution>
-                            <id>spotbugs</id>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                            <phase>verify</phase>
-                        </execution>
-                    </executions>
+                    <version>4.7.3.2</version>
+                    <inherited>false</inherited>
                     <configuration>
                         <spotbugsXmlOutputDirectory>target/spotbugs</spotbugsXmlOutputDirectory>
-                        <excludeFilterFile>${maven.multiModuleProjectDirectory}/config/findbugs-exclude.xml</excludeFilterFile>
+                        <excludeFilterFile>config/findbugs-exclude.xml</excludeFilterFile>
+                        <onlyAnalyze>com.github.spotbugs.spotbugs.*</onlyAnalyze>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -100,18 +85,33 @@
 
                     <configuration>
                         <java>
+                            <includes>
+                                <include>**/src/main/kotlin/**/*.java</include>
+                                <include>**/src/test/kotlin/**/*.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/target/**</exclude>
+                            </excludes>
+
                             <eclipse>
-                                <file>${maven.multiModuleProjectDirectory}/config/eclipse-format.xml</file>
+                                <file>config/eclipse-format.xml</file>
                             </eclipse>
                             <!--<googleJavaFormat />-->
 
                             <importOrder>
-                                <file>${maven.multiModuleProjectDirectory}/config/eclipse.importorder</file>
+                                <file>config/eclipse.importorder</file>
                             </importOrder>
 
                             <removeUnusedImports/>
                         </java>
                         <kotlin>
+                            <includes>
+                                <include>**/src/main/kotlin/**/*.kt</include>
+                                <include>**/src/test/kotlin/**/*.kt</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/target/**</exclude>
+                            </excludes>
                             <ktfmt>
                                 <style>KOTLINLANG</style>
                                 <!-- optional, other options are DEFAULT, DROPBOX, GOOGLE and KOTLINLANG -->
@@ -205,20 +205,26 @@
             <properties>
                 <skipTests>true</skipTests>
             </properties>
+
             <build>
                 <defaultGoal>verify</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
 
-        <!-- java profiles -->
         <profile>
-            <id>java formatting</id>
+            <id>format-code</id>
             <activation>
                 <property>
                     <name>!code-audits</name>
                 </property>
                 <file>
-                    <exists>src/main/java</exists>
+                    <exists>config/eclipse-format.xml</exists>
                 </file>
             </activation>
             <build>
@@ -238,14 +244,15 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
-            <id>check java formatting</id>
+            <id>check formatting</id>
             <activation>
                 <property>
                     <name>code-audits</name>
                 </property>
                 <file>
-                    <exists>src/main/java</exists>
+                    <exists>config/eclipse-format.xml</exists>
                 </file>
             </activation>
             <build>
@@ -262,12 +269,28 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>spotbugs</id>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <phase>verify</phase>
+                                <configuration>
+                                    <spotbugsXmlOutputDirectory>target/spotbugs</spotbugsXmlOutputDirectory>
+                                    <excludeFilterFile>config/findbugs-exclude.xml</excludeFilterFile>
+                                    <onlyAnalyze>com.github.spotbugs.spotbugs.*</onlyAnalyze>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
-        <!-- java profiles -->
 
-        <!-- kotlin profiles -->
         <profile>
             <id>enable-kotlin</id>
             <activation>
@@ -415,63 +438,6 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>format-kotlin</id>
-            <activation>
-                <property>
-                    <name>!code-audits</name>
-                </property>
-                <file>
-                    <exists>src/main/kotlin</exists>
-                </file>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.diffplug.spotless</groupId>
-                        <artifactId>spotless-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>format-kotlin</id>
-                                <phase>process-sources</phase>
-                                <goals>
-                                    <goal>apply</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>kotlin code checks</id>
-            <activation>
-                <property>
-                    <name>code-audits</name>
-                </property>
-                <file>
-                    <exists>src/main/kotlin</exists>
-                </file>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.diffplug.spotless</groupId>
-                        <artifactId>spotless-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>validate sources</id>
-                                <phase>process-sources</phase>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <!-- end kotlin profiles -->
 
         <!-- release profiles -->
         <profile>
