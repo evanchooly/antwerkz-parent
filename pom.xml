@@ -660,13 +660,22 @@
                                 <configuration>
                                     <rules>
                                         <requireEnvironmentVariable>
-                                            <variableName>SONATYPE_USERNAME</variableName>
+                                            JRELEASER_GITHUB_TOKEN
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            <variableName>SONATYPE_PASSWORD</variableName>
+                                            JRELEASER_GPG_PASSPHRASE
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            <variableName>GPG_PASSPHRASE</variableName>
+                                            JRELEASER_GPG_PUBLIC_KEY
+                                        </requireEnvironmentVariable>
+                                        <requireEnvironmentVariable>
+                                            JRELEASER_GPG_SECRET_KEY
+                                        </requireEnvironmentVariable>
+                                        <requireEnvironmentVariable>
+                                            JRELEASER_NEXUS2_PASSWORD
+                                        </requireEnvironmentVariable>
+                                        <requireEnvironmentVariable>
+                                            JRELEASER_NEXUS2_USERNAME
                                         </requireEnvironmentVariable>
                                     </rules>
                                     <fail>true</fail>
