@@ -3,7 +3,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>27-SNAPSHOT</version>
+    <version>27</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
@@ -630,25 +630,6 @@
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                                <configuration>
-                                    <gpgArguments>
-                                        <arg>--pinentry-mode</arg>
-                                        <arg>loopback</arg>
-                                    </gpgArguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-enforcer-plugin</artifactId>
                         <version>3.4.0</version>
                         <executions>
@@ -781,6 +762,7 @@
                                                 <closeRepository>${jreleaser.releaseRepository}</closeRepository>
                                                 <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>
                                                 <stagingRepositories>target/localRepo/</stagingRepositories>
+                                                <sign>true</sign>
                                             </maven-central>
                                         </nexus2>
                                     </maven>
