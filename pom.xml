@@ -660,22 +660,22 @@
                                 <configuration>
                                     <rules>
                                         <requireEnvironmentVariable>
-                                            JRELEASER_GITHUB_TOKEN
+                                            <variableName>JRELEASER_GITHUB_TOKEN</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            JRELEASER_GPG_PASSPHRASE
+                                            <variableName>JRELEASER_GPG_PASSPHRASE</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            JRELEASER_GPG_PUBLIC_KEY
+                                            <variableName>JRELEASER_GPG_PUBLIC_KEY</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            JRELEASER_GPG_SECRET_KEY
+                                            <variableName>JRELEASER_GPG_SECRET_KEY</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            JRELEASER_NEXUS2_PASSWORD
+                                            <variableName>JRELEASER_NEXUS2_PASSWORD</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            JRELEASER_NEXUS2_USERNAME
+                                            <variableName>JRELEASER_NEXUS2_USERNAME</variableName>
                                         </requireEnvironmentVariable>
                                     </rules>
                                     <fail>true</fail>
