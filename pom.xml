@@ -8,7 +8,7 @@
 
     <name>antwerkz parent</name>
     <url>https://github.com/evanchooly/antwerkz-parent</url>
-    <description>a common base for projects. provides depdency management, automatic kotlin support, and jrelreaser support</description>
+    <description>a common base for projects. provides dependency management, automatic kotlin support, and jreleaser support</description>
 
     <licenses>
         <license>
@@ -773,7 +773,7 @@
                                         <skipTag>true</skipTag>
                                         <skipRelease>${snapshot.build}</skipRelease>
                                         <milestone>
-                                            <name>r${jreleaser.tag.name}</name>
+                                            <name>${jreleaser.tag.name}</name>
                                         </milestone>
                                         <overwrite>true</overwrite>
                                         <update>
