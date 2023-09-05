@@ -769,12 +769,15 @@
                                 </deploy>
                                 <release>
                                     <github>
-                                        <releaseName>Release ${jreleaser.tag.name}</releaseName>
+                                        <releaseName>Release {{projectVersionNumber}}</releaseName>
                                         <skipTag>true</skipTag>
                                         <skipRelease>${snapshot.build}</skipRelease>
                                         <milestone>
-                                            <name>${jreleaser.tag.name}</name>
+                                            <name>{{projectVersionNumber}}</name>
                                         </milestone>
+                                        <issues>
+                                            <enabled>true</enabled>
+                                        </issues>
                                         <overwrite>true</overwrite>
                                         <update>
                                             <enabled>true</enabled>
