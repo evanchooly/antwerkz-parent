@@ -62,7 +62,7 @@
                     <inherited>false</inherited>
                     <configuration>
                         <spotbugsXmlOutputDirectory>target/spotbugs</spotbugsXmlOutputDirectory>
-                        <excludeFilterFile>config/findbugs-exclude.xml</excludeFilterFile>
+                        <excludeFilterFile>${maven.multiModuleProjectDirectory}/config/findbugs-exclude.xml</excludeFilterFile>
                         <onlyAnalyze>com.github.spotbugs.spotbugs.*</onlyAnalyze>
                     </configuration>
                 </plugin>
@@ -74,32 +74,26 @@
                     <configuration>
                         <java>
                             <includes>
-                                <include>**/src/main/kotlin/**/*.java</include>
-                                <include>**/src/test/kotlin/**/*.java</include>
+                                <include>src/main/java/**/*.java</include>
+                                <include>src/test/java/**/*.java</include>
                             </includes>
-                            <excludes>
-                                <exclude>**/target/**</exclude>
-                            </excludes>
 
                             <eclipse>
-                                <file>config/eclipse-format.xml</file>
+                                <file>${maven.multiModuleProjectDirectory}/config/eclipse-format.xml</file>
                             </eclipse>
                             <!--<googleJavaFormat />-->
 
                             <importOrder>
-                                <file>config/eclipse.importorder</file>
+                                <file>${maven.multiModuleProjectDirectory}/config/eclipse.importorder</file>
                             </importOrder>
 
                             <removeUnusedImports/>
                         </java>
                         <kotlin>
                             <includes>
-                                <include>**/src/main/kotlin/**/*.kt</include>
-                                <include>**/src/test/kotlin/**/*.kt</include>
+                                <include>src/main/kotlin/**/*.kt</include>
+                                <include>src/test/kotlin/**/*.kt</include>
                             </includes>
-                            <excludes>
-                                <exclude>**/target/**</exclude>
-                            </excludes>
                             <ktfmt>
                                 <style>KOTLINLANG</style>
                                 <!-- optional, other options are DEFAULT, DROPBOX, GOOGLE and KOTLINLANG -->
@@ -212,7 +206,7 @@
                     <name>!code-audits</name>
                 </property>
                 <file>
-                    <exists>config/eclipse-format.xml</exists>
+                    <exists>${maven.multiModuleProjectDirectory}/config/eclipse-format.xml</exists>
                 </file>
             </activation>
             <build>
@@ -240,7 +234,7 @@
                     <name>code-audits</name>
                 </property>
                 <file>
-                    <exists>config/eclipse-format.xml</exists>
+                    <exists>${maven.multiModuleProjectDirectory}/config/eclipse-format.xml</exists>
                 </file>
             </activation>
             <build>
