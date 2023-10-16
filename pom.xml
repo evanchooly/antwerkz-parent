@@ -24,7 +24,7 @@
     </developers>
 
     <properties>
-        <dokka.version>1.9.0</dokka.version>
+        <dokka.version>1.9.10</dokka.version>
         <kotlin.version>1.9.10</kotlin.version>
         <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
 
