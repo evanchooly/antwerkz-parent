@@ -289,39 +289,6 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.jetbrains.kotlin</groupId>
-                        <artifactId>kotlin-maven-plugin</artifactId>
-                        <version>${kotlin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>compile</id>
-                                <goals>
-                                    <goal>compile</goal>
-                                </goals>
-                                <configuration>
-                                    <sourceDirs>
-                                        <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
-                                    </sourceDirs>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>test-compile</id>
-                                <goals>
-                                    <goal>test-compile</goal>
-                                </goals>
-                                <configuration>
-                                    <sourceDirs>
-                                        <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
-                                    </sourceDirs>
-                                </configuration>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
-                            <javaParameters>true</javaParameters>
-                        </configuration>
-                    </plugin>
-                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>build-helper-maven-plugin</artifactId>
                         <version>3.5.0</version>
@@ -352,6 +319,29 @@
                                 </configuration>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-plugin</artifactId>
+                        <version>${kotlin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>compile</id>
+                                <goals>
+                                    <goal>compile</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>test-compile</id>
+                                <goals>
+                                    <goal>test-compile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
+                            <javaParameters>true</javaParameters>
+                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -413,15 +403,15 @@
                         <version>3.3.0</version>
                         <executions>
                             <execution>
+                                <id>dokka-jar</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
                                 <configuration>
+                                    <classesDirectory>${project.basedir}/target/dokka/</classesDirectory>
                                     <classifier>javadoc</classifier>
-                                    <includes>
-                                        <include>target/dokka</include>
-                                    </includes>
+                                    <outputDirectory>target</outputDirectory>
                                 </configuration>
                             </execution>
                         </executions>
