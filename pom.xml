@@ -76,8 +76,6 @@
                             <includes>
                                 <include>src/main/java/**/*.java</include>
                                 <include>src/test/java/**/*.java</include>
-                                <include>target/generated-sources/**/*.java</include>
-                                <include>target/generated-test-sources/**/*.java</include>
                             </includes>
 
                             <eclipse>
@@ -96,8 +94,6 @@
                             <includes>
                                 <include>src/main/kotlin/**/*.kt</include>
                                 <include>src/test/kotlin/**/*.kt</include>
-                                <include>target/generated-sources/**/*.kt</include>
-                                <include>target/generated-test-sources/**/*.kt</include>
                             </includes>
                             <ktfmt>
                                 <style>KOTLINLANG</style>
