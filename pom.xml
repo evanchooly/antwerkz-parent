@@ -416,6 +416,59 @@
             </build>
         </profile>
 
+        <profile>
+            <id>download config</id>
+            <activation>
+                <file>
+                    <missing>config</missing>
+                </file>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.googlecode.maven-download-plugin</groupId>
+                        <artifactId>download-maven-plugin</artifactId>
+                        <version>1.9.0</version>
+                        <executions>
+                            <execution>
+                                <id>install eclipse-format.xml</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>https://raw.githubusercontent.com/evanchooly/antwerkz-parent/main/config/eclipse-format.xml</url>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>install eclipse.importorder</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>https://raw.githubusercontent.com/evanchooly/antwerkz-parent/main/config/eclipse.importorder</url>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>install findbugs-exclude.xml</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>https://raw.githubusercontent.com/evanchooly/antwerkz-parent/main/config/findbugs-exclude.xml</url>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <outputDirectory>config</outputDirectory>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <!-- release profiles -->
         <profile>
             <id>gpg</id>
