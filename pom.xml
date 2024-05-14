@@ -3,7 +3,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>38-SNAPSHOT</version>
+    <version>38</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
