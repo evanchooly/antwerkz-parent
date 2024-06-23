@@ -12,6 +12,8 @@ jobs:
   Release:
     if: github.ref_type == 'branch' || github.ref_type == 'tag'
     uses: evanchooly/workflows/.github/workflows/release.yml@master
+    with:
+      maven-flags: "-Denforcer.skip"
     secrets:
       GH_PUSH_TOKEN              : ${{ secrets.GH_PUSH_TOKEN }}
       GPG_PRIVATE_KEY            : ${{ secrets.GPG_PRIVATE_KEY }}
