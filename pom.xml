@@ -539,7 +539,13 @@
                                             <variableName>SONATYPE_PASSWORD</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            <variableName>GPG_PASSPHRASE</variableName>
+                                            <variableName>SONATYPE_PUBLISH_USERNAME</variableName>
+                                        </requireEnvironmentVariable>
+                                        <requireEnvironmentVariable>
+                                            <variableName>SONATYPE_PUBLISH_TOKEN</variableName>
+                                        </requireEnvironmentVariable>
+                                        <requireEnvironmentVariable>
+                                            <variableName>MAVEN_GPG_PASSPHRASE</variableName>
                                         </requireEnvironmentVariable>
                                     </rules>
                                     <fail>true</fail>
