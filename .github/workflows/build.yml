@@ -16,7 +16,6 @@ jobs:
       maven-flags: "-Denforcer.skip"
     secrets:
       GH_PUSH_TOKEN              : ${{ secrets.GH_PUSH_TOKEN }}
-      GPG_PASSPHRASE             : ${{ secrets.GPG_PASSPHRASE }}
       GPG_PRIVATE_KEY            : ${{ secrets.GPG_PRIVATE_KEY }}
       MAVEN_GPG_PASSPHRASE       : ${{ secrets.GPG_PASSPHRASE }}
       SONATYPE_USERNAME          : ${{ secrets.SONATYPE_USERNAME }}
