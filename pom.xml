@@ -31,6 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>true</downloadSources>
         <nexus.url>https://oss.sonatype.org</nexus.url>
+        <jreleaser.version>1.12.0</jreleaser.version>
     </properties>
 
     <scm>
@@ -737,7 +738,7 @@
                     <plugin>
                         <groupId>org.jreleaser</groupId>
                         <artifactId>jreleaser-maven-plugin</artifactId>
-                        <version>1.12.0</version>
+                        <version>${jreleaser.version}</version>
                         <configuration>
                             <jreleaser>
                                 <project>
