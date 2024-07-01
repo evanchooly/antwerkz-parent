@@ -31,7 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>true</downloadSources>
         <nexus.url>https://oss.sonatype.org</nexus.url>
-        <jreleaser.version>1.12.0</jreleaser.version>
+        <jreleaser.version>1.13.1</jreleaser.version>
     </properties>
 
     <scm>
