@@ -266,7 +266,7 @@
                                 <phase>verify</phase>
                                 <configuration>
                                     <spotbugsXmlOutputDirectory>target/spotbugs</spotbugsXmlOutputDirectory>
-                                    <excludeFilterFile>config/findbugs-exclude.xml</excludeFilterFile>
+                                    <excludeFilterFile>${maven.multiModuleProjectDirectory}/config/findbugs-exclude.xml</excludeFilterFile>
                                     <onlyAnalyze>com.github.spotbugs.spotbugs.*</onlyAnalyze>
                                 </configuration>
                             </execution>
@@ -400,7 +400,7 @@
             <id>download config</id>
             <activation>
                 <file>
-                    <missing>config</missing>
+                    <missing>${maven.multiModuleProjectDirectory}/config</missing>
                 </file>
             </activation>
 
@@ -443,7 +443,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <outputDirectory>config</outputDirectory>
+                            <outputDirectory>${maven.multiModuleProjectDirectory}/config</outputDirectory>
                         </configuration>
                     </plugin>
                 </plugins>
