@@ -1,4 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.antwerkz</groupId>
@@ -675,7 +678,7 @@
                                             <variableName>JRELEASER_GPG_SECRET_KEY</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
-                                            <variableName>JRELEASER_NEXUS2_PASSWORD</variableName>
+                                            <variableName>JRELEASER_NEXUS2_TOKEN</variableName>
                                         </requireEnvironmentVariable>
                                         <requireEnvironmentVariable>
                                             <variableName>JRELEASER_NEXUS2_USERNAME</variableName>
@@ -747,7 +750,7 @@
                                         <multiProject>true</multiProject>
                                     </java>
                                     <snapshot>
-                                        <label>${jreleaser.tag.name}-SNAPSHOT</label>
+                                        <label>${jreleaser.tag.name}</label>
                                     </snapshot>
                                 </project>
                                 <announce>
