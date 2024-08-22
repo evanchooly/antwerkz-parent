@@ -28,7 +28,7 @@
 
     <properties>
         <dokka.version>1.9.20</dokka.version>
-        <kotlin.version>2.0.10</kotlin.version>
+        <kotlin.version>2.0.20</kotlin.version>
         <kotlin.compiler.jvmTarget>11</kotlin.compiler.jvmTarget>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
