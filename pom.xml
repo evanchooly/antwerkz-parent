@@ -34,7 +34,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <downloadSources>true</downloadSources>
         <nexus.url>https://oss.sonatype.org</nexus.url>
-        <jreleaser.version>1.13.1</jreleaser.version>
+        <jreleaser.version>1.14.0</jreleaser.version>
     </properties>
 
     <scm>
@@ -783,7 +783,7 @@
                                             <maven-central>
                                                 <active>${jreleaser.nexus.deploy}</active>
                                                 <url>https://oss.sonatype.org/service/local</url>
-                                                <snapshotUrl>https://oss.sonatype.org/content/repositories/snapshots/</snapshotUrl>
+                                                <snapshotUrl>https://oss.sonatype.org/content/repositories/snapshots</snapshotUrl>
                                                 <closeRepository>${jreleaser.releaseRepository}</closeRepository>
                                                 <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>
                                                 <stagingRepositories>target/localRepo/</stagingRepositories>
