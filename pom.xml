@@ -780,7 +780,7 @@
                                         <nexus2>
                                             <maven-central>
                                                 <active>${jreleaser.nexus.deploy}</active>
-                                                <url>https://central.sonatype.com/api/v1/publisher</url>
+                                                <url>https://s01.oss.sonatype.org/service/local</url>
                                                 <snapshotUrl>https://oss.sonatype.org/content/repositories/snapshots</snapshotUrl>
 <!--                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>-->
 <!--                                                <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>-->
