@@ -781,7 +781,7 @@
                                             <maven-central>
                                                 <active>${jreleaser.nexus.deploy}</active>
                                                 <url>https://central.sonatype.com/api/v1/publisher</url>
-                                                <snapshotUrl>https://central.sonatype.com/repositories/snapshots</snapshotUrl>
+                                                <snapshotUrl>https://oss.sonatype.org/content/repositories/snapshots</snapshotUrl>
 <!--                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>-->
 <!--                                                <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>-->
                                                 <stagingRepositories>target/localRepo/</stagingRepositories>
