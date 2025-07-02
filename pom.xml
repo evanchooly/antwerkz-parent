@@ -171,18 +171,16 @@
         </pluginManagement>
     </build>
 
-<!--
     <distributionManagement>
         <snapshotRepository>
             <id>central</id>
-            <url>${nexus.url}/content/repositories/snapshots</url>
+            <url>https://central.sonatype.com</url>
         </snapshotRepository>
         <repository>
             <id>central</id>
-            <url>${nexus.url}/service/local/staging/deploy/maven2/</url>
+            <url>https://central.sonatype.com</url>
         </repository>
     </distributionManagement>
--->
 
     <profiles>
         <profile>
