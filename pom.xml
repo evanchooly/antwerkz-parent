@@ -777,7 +777,7 @@
                                             <failOnWarning>false</failOnWarning>
                                             <failOnError>false</failOnError>
                                         </pomchecker>
-                                        <maven>
+                                        <nexus2>
                                             <maven-central>
                                                 <active>${jreleaser.nexus.deploy}</active>
                                                 <url>https://central.sonatype.com/api/v1/publisher</url>
@@ -787,7 +787,7 @@
                                                 <stagingRepositories>target/localRepo/</stagingRepositories>
                                                 <sign>true</sign>
                                             </maven-central>
-                                        </maven>
+                                        </nexus2>
                                     </maven>
                                 </deploy>
                                 <release>
