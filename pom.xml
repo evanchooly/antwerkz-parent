@@ -6,7 +6,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>48-SNAPSHOT</version>
+    <version>48</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
@@ -171,6 +171,7 @@
         </pluginManagement>
     </build>
 
+<!--
     <distributionManagement>
         <snapshotRepository>
             <id>central</id>
@@ -181,6 +182,7 @@
             <url>${nexus.url}/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+-->
 
     <profiles>
         <profile>
