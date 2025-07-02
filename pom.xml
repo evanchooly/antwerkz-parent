@@ -172,14 +172,14 @@
     </build>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>central</id>
-            <url>https://central.sonatype.com</url>
-        </snapshotRepository>
         <repository>
             <id>central</id>
-            <url>https://central.sonatype.com</url>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
+        <snapshotRepository>
+            <id>central</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <profiles>
@@ -777,17 +777,17 @@
                                             <failOnWarning>false</failOnWarning>
                                             <failOnError>false</failOnError>
                                         </pomchecker>
-                                        <nexus2>
+                                        <maven>
                                             <maven-central>
                                                 <active>${jreleaser.nexus.deploy}</active>
-                                                <url>https://oss.sonatype.org/service/local</url>
-                                                <snapshotUrl>https://oss.sonatype.org/content/repositories/snapshots</snapshotUrl>
-                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>
-                                                <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>
+                                                <url>https://central.sonatype.com/api/v1/publisher</url>
+<!--                                                <snapshotUrl>https://oss.sonatype.org/content/repositories/snapshots</snapshotUrl>-->
+<!--                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>-->
+<!--                                                <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>-->
                                                 <stagingRepositories>target/localRepo/</stagingRepositories>
                                                 <sign>true</sign>
                                             </maven-central>
-                                        </nexus2>
+                                        </maven>
                                     </maven>
                                 </deploy>
                                 <release>
