@@ -6,7 +6,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>55-SNAPSHOT</version>
+    <version>56-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
@@ -174,7 +174,7 @@
     <distributionManagement>
         <repository>
             <id>central</id>
-            <url>https://repo1.maven.org/maven2/</url>
+            <url>https://ossrh-staging-api.central.sonatype.com/service/local/</url>
         </repository>
         <snapshotRepository>
             <id>central</id>
@@ -782,8 +782,9 @@
                                                 <active>ALWAYS</active>
                                                 <url>https://ossrh-staging-api.central.sonatype.com/service/local/</url>
                                                 <snapshotUrl>https://central.sonatype.com/repository/maven-snapshots/</snapshotUrl>
-<!--                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>-->
+                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>
 <!--                                                <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>-->
+                                                <snapshotSupported>true</snapshotSupported>
                                                 <stagingRepositories>target/localRepo/</stagingRepositories>
                                                 <sign>true</sign>
                                             </app>
