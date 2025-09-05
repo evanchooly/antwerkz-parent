@@ -613,6 +613,7 @@
                     <name>jreleaser</name>
                 </property>
             </activation>
+<!--
             <distributionManagement>
                 <snapshotRepository>
                     <id>local-snapshot</id>
@@ -623,6 +624,7 @@
                     <url>file://${local.repository.path}/</url>
                 </repository>
             </distributionManagement>
+-->
             <build>
                 <plugins>
                     <plugin>
