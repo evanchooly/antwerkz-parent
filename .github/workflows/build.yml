@@ -15,7 +15,6 @@ jobs:
     secrets:
       GH_PUSH_TOKEN        : ${{ secrets.GH_PUSH_TOKEN }}
       MAVEN_GPG_PASSPHRASE : ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-      GPG_PUBLIC_KEY       : ${{ secrets.GPG_PUBLIC_KEY }}
       GPG_PRIVATE_KEY      : ${{ secrets.GPG_PRIVATE_KEY }}
       SONATYPE_USERNAME    : ${{ secrets.SONATYPE_USERNAME }}
       SONATYPE_TOKEN       : ${{ secrets.SONATYPE_TOKEN }}
