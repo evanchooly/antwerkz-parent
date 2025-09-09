@@ -178,7 +178,7 @@
             <layout>default</layout>
             <url>https://repo1.maven.org/maven2</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
         <snapshotRepository>
@@ -788,6 +788,8 @@
                                         <nexus2>
                                             <app>
                                                 <active>ALWAYS</active>
+                                                <applyMavenCentralRules>true</applyMavenCentralRules>
+                                                <authorization>BEARER</authorization>
                                                 <url>https://s01.oss.sonatype.org/service/local</url>
                                                 <snapshotUrl>https://s01.oss.sonatype.org/content/repositories/snapshots/</snapshotUrl>
                                                 <closeRepository>${jreleaser.releaseRepository}</closeRepository>
