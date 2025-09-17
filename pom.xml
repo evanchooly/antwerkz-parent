@@ -171,25 +171,6 @@
         </pluginManagement>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>central</id>
-            <name>Maven Central</name>
-            <layout>default</layout>
-            <url>https://repo1.maven.org/maven2</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <snapshotRepository>
-            <id>sonatype-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </snapshotRepository>
-    </distributionManagement>
-
     <profiles>
         <profile>
             <id>code-audits</id>
@@ -785,19 +766,23 @@
                                             <failOnWarning>false</failOnWarning>
                                             <failOnError>false</failOnError>
                                         </pomchecker>
+                                        <mavenCentral>
+                                            <release-deploy>
+                                                <active>RELEASE</active>
+                                                <url>https://central.sonatype.com/api/v1/publisher</url>
+                                                <stagingRepositories>target/staging-deploy</stagingRepositories>
+                                            </release-deploy>
+                                        </mavenCentral>
                                         <nexus2>
-                                            <app>
-                                                <active>ALWAYS</active>
+                                            <snapshot-deploy>
+                                                <active>SNAPSHOT</active>
+                                                <snapshotUrl>https://central.sonatype.com/repository/maven-snapshots/</snapshotUrl>
                                                 <applyMavenCentralRules>true</applyMavenCentralRules>
-                                                <authorization>BEARER</authorization>
-                                                <url>https://s01.oss.sonatype.org/service/local</url>
-                                                <snapshotUrl>https://s01.oss.sonatype.org/content/repositories/snapshots/</snapshotUrl>
-                                                <closeRepository>${jreleaser.releaseRepository}</closeRepository>
-<!--                                                <releaseRepository>${jreleaser.releaseRepository}</releaseRepository>-->
                                                 <snapshotSupported>true</snapshotSupported>
-                                                <stagingRepositories>target/localRepo/</stagingRepositories>
-                                                <sign>true</sign>
-                                            </app>
+                                                <closeRepository>true</closeRepository>
+                                                <releaseRepository>true</releaseRepository>
+                                                <stagingRepositories>target/staging-deploy</stagingRepositories>
+                                            </snapshot-deploy>
                                         </nexus2>
                                     </maven>
                                 </deploy>
@@ -873,7 +858,7 @@
                 <release.author>Justin Lee (@evanchooly)</release.author>
                 <release.email>jlee@antwerkz.com</release.email>
 
-                <local.repository.path>${maven.multiModuleProjectDirectory}/target/localRepo</local.repository.path>
+                <local.repository.path>${maven.multiModuleProjectDirectory}/target/staging-deploy</local.repository.path>
                 <snapshot.build>true</snapshot.build>
                 <skipTests>true</skipTests>
 
