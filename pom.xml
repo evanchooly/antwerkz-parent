@@ -583,7 +583,7 @@
             <id>jreleaser</id>
             <activation>
                 <property>
-                    <name>jreleaser</name>
+                    <name>release</name>
                 </property>
             </activation>
             <distributionManagement>
