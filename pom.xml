@@ -6,7 +6,7 @@
 
     <groupId>com.antwerkz</groupId>
     <artifactId>antwerkz-parent</artifactId>
-    <version>66-SNAPSHOT</version>
+    <version>66</version>
     <packaging>pom</packaging>
 
     <name>antwerkz parent</name>
