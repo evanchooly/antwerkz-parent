@@ -359,6 +359,10 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
+                            <javaParameters>true</javaParameters>
+                        </configuration>
                     </plugin>
                     <plugin>
                         <groupId>org.jetbrains.dokka</groupId>
