@@ -188,19 +188,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.10.0</version>
-                <configuration>
-                    <autoPublish>true</autoPublish>
-                    <checksums>all</checksums>
-                    <publishingServerId>central</publishingServerId>
-                    <waitUntil>published</waitUntil>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
     <profiles>
@@ -555,6 +542,18 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.10.0</version>
+                        <configuration>
+                            <autoPublish>true</autoPublish>
+                            <checksums>all</checksums>
+                            <publishingServerId>central</publishingServerId>
+                            <waitUntil>published</waitUntil>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-clean-plugin</artifactId>
                         <inherited>false</inherited>
@@ -618,55 +617,6 @@
                                         </requireEnvironmentVariable>
                                     </rules>
                                     <fail>true</fail>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.coderplus.maven.plugins</groupId>
-                        <artifactId>copy-rename-maven-plugin</artifactId>
-                        <version>1.0.1</version>
-                        <executions>
-                            <execution>
-                                <id>copy-license-file</id>
-                                <goals>
-                                    <goal>copy</goal>
-                                </goals>
-                                <phase>generate-sources</phase>
-                                <configuration>
-                                    <sourceFile>${maven.multiModuleProjectDirectory}/LICENSE</sourceFile>
-                                    <destinationFile>${project.build.outputDirectory}/META-INF/LICENSE-${project.artifactId}</destinationFile>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <attach>true</attach>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.4.0</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <attach>true</attach>
                                 </configuration>
                             </execution>
                         </executions>
