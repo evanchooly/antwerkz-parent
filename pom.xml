@@ -35,6 +35,7 @@
         <downloadSources>true</downloadSources>
         <nexus.url>https://oss.sonatype.org</nexus.url>
         <jreleaser.version>1.24.0</jreleaser.version>
+        <jreleaser.verify.pom>false</jreleaser.verify.pom>
     </properties>
 
     <scm>
@@ -669,6 +670,9 @@
                                         </pomchecker>
                                         <mavenCentral>
                                             <release-deploy>
+                                                <verifyPom>${jreleaser.verify.pom}</verifyPom>
+                                                <applyMavenCentralRules>${jreleaser.verify.pom}</applyMavenCentralRules>
+
                                                 <active>RELEASE</active>
                                                 <url>https://central.sonatype.com/api/v1/publisher</url>
                                                 <stagingRepositories>target/staging-deploy</stagingRepositories>
@@ -676,6 +680,9 @@
                                         </mavenCentral>
                                         <nexus2>
                                             <snapshot-deploy>
+                                                <verifyPom>${jreleaser.verify.pom}</verifyPom>
+                                                <applyMavenCentralRules>${jreleaser.verify.pom}</applyMavenCentralRules>
+
                                                 <active>SNAPSHOT</active>
                                                 <snapshotUrl>https://central.sonatype.com/repository/maven-snapshots/</snapshotUrl>
                                                 <applyMavenCentralRules>true</applyMavenCentralRules>
